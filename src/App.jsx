@@ -15,6 +15,17 @@ import {
   Image as ImageIcon,
   CornerUpLeft,
   Globe,
+  Settings,
+  ChevronRight,
+  Bell,
+  BellOff,
+  Mail,
+  Phone,
+  Pencil,
+  Check,
+  Palette,
+  Shield,
+  Camera,
 } from "lucide-react";
 
 // --- Supabase-backed storage (drop-in replacement for the Claude-artifact
@@ -71,11 +82,11 @@ const storage = {
 };
 
 const AVATAR_COLORS = ["#F2A93B", "#2DD4BF", "#FB7159", "#5B8DEF", "#E8608F", "#34D399"];
-const REACTIONS = ["👍", "❤️", "😂", "😮", "🔥", "👋"];
+const REACTIONS = ["рџ‘Ќ", "вќ¤пёЏ", "рџ‚", "рџ®", "рџ”Ґ", "рџ‘‹"];
 const STICKERS = [
-  "🎉", "🐱", "👋", "💯", "🍕", "😴", "🚀", "❤️",
-  "🔥", "🎂", "🥳", "😂", "👏", "🤝", "🌟", "🎮",
-  "☕", "🎵", "😎", "🤯",
+  "рџЋ‰", "рџђ±", "рџ‘‹", "рџ’Ї", "рџЌ•", "рџґ", "рџљЂ", "вќ¤пёЏ",
+  "рџ”Ґ", "рџЋ‚", "рџҐі", "рџ‚", "рџ‘Џ", "рџ¤ќ", "рџЊџ", "рџЋ®",
+  "в•", "рџЋµ", "рџЋ", "рџ¤Ї",
 ];
 const STICKER_ANIMATIONS = ["wave-sticker-pop", "wave-sticker-bounce", "wave-sticker-spin", "wave-sticker-wobble"];
 function stickerAnimFor(id) {
@@ -85,69 +96,70 @@ function stickerAnimFor(id) {
 
 const STRINGS = {
   ru: {
-    appName: "Волна",
-    tagline: "Каналы и чаты для твоей команды или тусовки",
-    usernamePlaceholder: "Имя пользователя",
-    passwordPlaceholder: "Пароль",
-    confirmPasswordPlaceholder: "Повтори пароль",
-    needUsername: "Введи имя пользователя",
-    needPassword: "Введи пароль",
-    passwordTooShort: "Пароль должен быть не короче 4 символов",
-    passwordsMismatch: "Пароли не совпадают",
-    usernameTaken: "Это имя уже занято, выбери другое",
-    saveFailed: "Не получилось сохранить, попробуй ещё раз",
-    userNotFound: "Такого пользователя нет — зарегистрируйся",
-    wrongPassword: "Неверный пароль",
-    genericError: "Что-то пошло не так, попробуй ещё раз",
-    busy: "Секунду…",
-    registerBtn: "Зарегистрироваться",
-    loginBtn: "Войти",
-    toggleToRegister: "Нет аккаунта? Зарегистрироваться",
-    toggleToLogin: "Уже есть аккаунт? Войти",
+    appName: "Р’РѕР»РЅР°",
+    tagline: "РљР°РЅР°Р»С‹ Рё С‡Р°С‚С‹ РґР»СЏ С‚РІРѕРµР№ РєРѕРјР°РЅРґС‹ РёР»Рё С‚СѓСЃРѕРІРєРё",
+    usernamePlaceholder: "РРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ",
+    passwordPlaceholder: "РџР°СЂРѕР»СЊ",
+    confirmPasswordPlaceholder: "РџРѕРІС‚РѕСЂРё РїР°СЂРѕР»СЊ",
+    needUsername: "Р’РІРµРґРё РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ",
+    needPassword: "Р’РІРµРґРё РїР°СЂРѕР»СЊ",
+    passwordTooShort: "РџР°СЂРѕР»СЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅРµ РєРѕСЂРѕС‡Рµ 4 СЃРёРјРІРѕР»РѕРІ",
+    passwordsMismatch: "РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚",
+    usernameTaken: "Р­С‚Рѕ РёРјСЏ СѓР¶Рµ Р·Р°РЅСЏС‚Рѕ, РІС‹Р±РµСЂРё РґСЂСѓРіРѕРµ",
+    saveFailed: "РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ СЃРѕС…СЂР°РЅРёС‚СЊ, РїРѕРїСЂРѕР±СѓР№ РµС‰С‘ СЂР°Р·",
+    userNotFound: "РўР°РєРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅРµС‚ вЂ” Р·Р°СЂРµРіРёСЃС‚СЂРёСЂСѓР№СЃСЏ",
+    wrongPassword: "РќРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ",
+    genericError: "Р§С‚Рѕ-С‚Рѕ РїРѕС€Р»Рѕ РЅРµ С‚Р°Рє, РїРѕРїСЂРѕР±СѓР№ РµС‰С‘ СЂР°Р·",
+    busy: "РЎРµРєСѓРЅРґСѓвЂ¦",
+    registerBtn: "Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ",
+    loginBtn: "Р’РѕР№С‚Рё",
+    toggleToRegister: "РќРµС‚ Р°РєРєР°СѓРЅС‚Р°? Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ",
+    toggleToLogin: "РЈР¶Рµ РµСЃС‚СЊ Р°РєРєР°СѓРЅС‚? Р’РѕР№С‚Рё",
     loginHint:
-      "Вход запоминается на этом устройстве. Пароль хранится в виде хеша в общем хранилище приложения — это демо-уровень защиты, не полноценная серверная авторизация.",
-    loadingSession: "Загрузка…",
-    chooseLanguage: "Выбери язык",
-    chooseLanguageSubtitle: "Это можно изменить позже в приложении",
-    continueBtn: "Продолжить",
-    directMessages: "Личные сообщения",
-    noOtherUsers: "Пока нет других зарегистрированных пользователей.",
-    channels: "Каналы",
-    createServer: "Создать сервер",
-    demoNoServer: "В демо-версии нельзя создать новый сервер",
-    searchServer: "Поиск по",
-    searchMessages: "Поиск по сообщениям",
-    members: "Участники",
-    you: "ты",
-    close: "Закрыть",
-    pickDialog: "Выбери, кому написать",
-    loadingMessages: "Загрузка сообщений…",
-    nothingFound: "Ничего не найдено",
-    emptyChannel: "Здесь пока тихо. Напиши первое сообщение.",
-    saveError: "Не получилось сохранить последнее действие. Попробуй ещё раз.",
-    writeTo: "Написать",
-    sendingPhoto: "Отправка фото…",
-    sendPhoto: "Отправить фото",
-    stickers: "Стикеры",
-    send: "Отправить",
-    addReaction: "Добавить реакцию",
-    reply: "Ответить",
-    cancelReply: "Отменить ответ",
-    replyingTo: "Ответ",
-    photoLabel: "Фото",
-    imageAlt: "Изображение",
-    typingOne: (name) => `${name} печатает…`,
+      "Р’С…РѕРґ Р·Р°РїРѕРјРёРЅР°РµС‚СЃСЏ РЅР° СЌС‚РѕРј СѓСЃС‚СЂРѕР№СЃС‚РІРµ. РџР°СЂРѕР»СЊ С…СЂР°РЅРёС‚СЃСЏ РІ РІРёРґРµ С…РµС€Р° РІ РѕР±С‰РµРј С…СЂР°РЅРёР»РёС‰Рµ РїСЂРёР»РѕР¶РµРЅРёСЏ вЂ” СЌС‚Рѕ РґРµРјРѕ-СѓСЂРѕРІРµРЅСЊ Р·Р°С‰РёС‚С‹, РЅРµ РїРѕР»РЅРѕС†РµРЅРЅР°СЏ СЃРµСЂРІРµСЂРЅР°СЏ Р°РІС‚РѕСЂРёР·Р°С†РёСЏ.",
+    loadingSession: "Р—Р°РіСЂСѓР·РєР°вЂ¦",
+    chooseLanguage: "Р’С‹Р±РµСЂРё СЏР·С‹Рє",
+    chooseLanguageSubtitle: "Р­С‚Рѕ РјРѕР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ РїРѕР·Р¶Рµ РІ РїСЂРёР»РѕР¶РµРЅРёРё",
+    continueBtn: "РџСЂРѕРґРѕР»Р¶РёС‚СЊ",
+    directMessages: "Р›РёС‡РЅС‹Рµ СЃРѕРѕР±С‰РµРЅРёСЏ",
+    noOtherUsers: "РџРѕРєР° РЅРµС‚ РґСЂСѓРіРёС… Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№.",
+    channels: "РљР°РЅР°Р»С‹",
+    createServer: "РЎРѕР·РґР°С‚СЊ СЃРµСЂРІРµСЂ",
+    demoNoServer: "Р’ РґРµРјРѕ-РІРµСЂСЃРёРё РЅРµР»СЊР·СЏ СЃРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ СЃРµСЂРІРµСЂ",
+    searchServer: "РџРѕРёСЃРє РїРѕ",
+    searchMessages: "РџРѕРёСЃРє РїРѕ СЃРѕРѕР±С‰РµРЅРёСЏРј",
+    members: "РЈС‡Р°СЃС‚РЅРёРєРё",
+    you: "С‚С‹",
+    close: "Р—Р°РєСЂС‹С‚СЊ",
+    pickDialog: "Р’С‹Р±РµСЂРё, РєРѕРјСѓ РЅР°РїРёСЃР°С‚СЊ",
+    loadingMessages: "Р—Р°РіСЂСѓР·РєР° СЃРѕРѕР±С‰РµРЅРёР№вЂ¦",
+    nothingFound: "РќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ",
+    emptyChannel: "Р—РґРµСЃСЊ РїРѕРєР° С‚РёС…Рѕ. РќР°РїРёС€Рё РїРµСЂРІРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ.",
+    saveError: "РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ СЃРѕС…СЂР°РЅРёС‚СЊ РїРѕСЃР»РµРґРЅРµРµ РґРµР№СЃС‚РІРёРµ. РџРѕРїСЂРѕР±СѓР№ РµС‰С‘ СЂР°Р·.",
+    writeTo: "РќР°РїРёСЃР°С‚СЊ",
+    sendingPhoto: "РћС‚РїСЂР°РІРєР° С„РѕС‚РѕвЂ¦",
+    sendPhoto: "РћС‚РїСЂР°РІРёС‚СЊ С„РѕС‚Рѕ",
+    stickers: "РЎС‚РёРєРµСЂС‹",
+    send: "РћС‚РїСЂР°РІРёС‚СЊ",
+    addReaction: "Р”РѕР±Р°РІРёС‚СЊ СЂРµР°РєС†РёСЋ",
+    reply: "РћС‚РІРµС‚РёС‚СЊ",
+    cancelReply: "РћС‚РјРµРЅРёС‚СЊ РѕС‚РІРµС‚",
+    replyingTo: "РћС‚РІРµС‚",
+    photoLabel: "Р¤РѕС‚Рѕ",
+    imageAlt: "РР·РѕР±СЂР°Р¶РµРЅРёРµ",
+    typingOne: (name) => `${name} РїРµС‡Р°С‚Р°РµС‚вЂ¦`,
     voiceDemoHint:
-      "Голосовой канал использует WebRTC напрямую между браузерами (без TURN-сервера) — в большинстве сетей звук пойдёт, но на некоторых мобильных/корпоративных сетях с жёстким NAT соединение может не установиться.",
-    voiceNoOne: "Пока никого нет в канале",
-    joinVoice: (name) => "Войти в " + name,
-    leaveVoice: (name) => "Выйти из " + name,
-    mute: "Выключить микрофон",
-    unmute: "Включить микрофон",
-    logout: "Выйти",
-    chooseImage: "Выбери файл изображения",
-    switchLanguage: "Сменить язык",
-    newMessageIn: (name) => `Новое в ${name}`,
+      "Р“РѕР»РѕСЃРѕРІРѕР№ РєР°РЅР°Р» РёСЃРїРѕР»СЊР·СѓРµС‚ WebRTC РЅР°РїСЂСЏРјСѓСЋ РјРµР¶РґСѓ Р±СЂР°СѓР·РµСЂР°РјРё (Р±РµР· TURN-СЃРµСЂРІРµСЂР°) вЂ” РІ Р±РѕР»СЊС€РёРЅСЃС‚РІРµ СЃРµС‚РµР№ Р·РІСѓРє РїРѕР№РґС‘С‚, РЅРѕ РЅР° РЅРµРєРѕС‚РѕСЂС‹С… РјРѕР±РёР»СЊРЅС‹С…/РєРѕСЂРїРѕСЂР°С‚РёРІРЅС‹С… СЃРµС‚СЏС… СЃ Р¶С‘СЃС‚РєРёРј NAT СЃРѕРµРґРёРЅРµРЅРёРµ РјРѕР¶РµС‚ РЅРµ СѓСЃС‚Р°РЅРѕРІРёС‚СЊСЃСЏ.",
+    voiceNoOne: "РџРѕРєР° РЅРёРєРѕРіРѕ РЅРµС‚ РІ РєР°РЅР°Р»Рµ",
+    joinVoice: (name) => "Р’РѕР№С‚Рё РІ " + name,
+    leaveVoice: (name) => "Р’С‹Р№С‚Рё РёР· " + name,
+    mute: "Р’С‹РєР»СЋС‡РёС‚СЊ РјРёРєСЂРѕС„РѕРЅ",
+    unmute: "Р’РєР»СЋС‡РёС‚СЊ РјРёРєСЂРѕС„РѕРЅ",
+    logout: "Р’С‹Р№С‚Рё",
+    chooseImage: "Р’С‹Р±РµСЂРё С„Р°Р№Р» РёР·РѕР±СЂР°Р¶РµРЅРёСЏ",
+    switchLanguage: "РЎРјРµРЅРёС‚СЊ СЏР·С‹Рє",
+    newMessageIn: (name) => `РќРѕРІРѕРµ РІ ${name}`,
+    settingsTitle: "РќР°СЃС‚СЂРѕР№РєРё",
   },
   en: {
     appName: "Wave",
@@ -161,17 +173,17 @@ const STRINGS = {
     passwordsMismatch: "Passwords don't match",
     usernameTaken: "That name is taken, pick another",
     saveFailed: "Couldn't save, try again",
-    userNotFound: "No such user — sign up instead",
+    userNotFound: "No such user вЂ” sign up instead",
     wrongPassword: "Wrong password",
     genericError: "Something went wrong, try again",
-    busy: "One sec…",
+    busy: "One secвЂ¦",
     registerBtn: "Sign up",
     loginBtn: "Log in",
     toggleToRegister: "No account? Sign up",
     toggleToLogin: "Already have an account? Log in",
     loginHint:
-      "Your session is remembered on this device. The password is stored as a hash in the app's shared storage — this is demo-level protection, not real server auth.",
-    loadingSession: "Loading…",
+      "Your session is remembered on this device. The password is stored as a hash in the app's shared storage вЂ” this is demo-level protection, not real server auth.",
+    loadingSession: "LoadingвЂ¦",
     chooseLanguage: "Choose a language",
     chooseLanguageSubtitle: "You can change this later in the app",
     continueBtn: "Continue",
@@ -186,12 +198,12 @@ const STRINGS = {
     you: "you",
     close: "Close",
     pickDialog: "Pick who to message",
-    loadingMessages: "Loading messages…",
+    loadingMessages: "Loading messagesвЂ¦",
     nothingFound: "Nothing found",
     emptyChannel: "It's quiet here. Send the first message.",
     saveError: "Couldn't save your last action. Try again.",
     writeTo: "Message",
-    sendingPhoto: "Sending photo…",
+    sendingPhoto: "Sending photoвЂ¦",
     sendPhoto: "Send a photo",
     stickers: "Stickers",
     send: "Send",
@@ -201,9 +213,9 @@ const STRINGS = {
     replyingTo: "Replying to",
     photoLabel: "Photo",
     imageAlt: "Image",
-    typingOne: (name) => `${name} is typing…`,
+    typingOne: (name) => `${name} is typingвЂ¦`,
     voiceDemoHint:
-      "This voice channel uses WebRTC directly between browsers (no TURN server) — audio works on most networks, but strict NATs (some mobile/corporate networks) may fail to connect.",
+      "This voice channel uses WebRTC directly between browsers (no TURN server) вЂ” audio works on most networks, but strict NATs (some mobile/corporate networks) may fail to connect.",
     voiceNoOne: "No one here yet",
     joinVoice: (name) => "Join " + name,
     leaveVoice: (name) => "Leave " + name,
@@ -213,6 +225,7 @@ const STRINGS = {
     chooseImage: "Pick an image file",
     switchLanguage: "Switch language",
     newMessageIn: (name) => `New message in ${name}`,
+    settingsTitle: "Settings",
   },
 };
 
@@ -233,43 +246,43 @@ function dmChannelId(a, b) {
 const DEMO_SERVERS = [
   {
     id: "dev",
-    name: "Клуб разработки",
+    name: "РљР»СѓР± СЂР°Р·СЂР°Р±РѕС‚РєРё",
     tag: "DEV",
-    members: ["Аня", "Максим", "Света"],
+    members: ["РђРЅСЏ", "РњР°РєСЃРёРј", "РЎРІРµС‚Р°"],
     channels: [
-      { id: "dev-general", name: "общий", type: "text" },
-      { id: "dev-help", name: "помощь", type: "text" },
-      { id: "dev-showcase", name: "показать-проект", type: "text" },
-      { id: "dev-voice", name: "войс-комната", type: "voice" },
+      { id: "dev-general", name: "РѕР±С‰РёР№", type: "text" },
+      { id: "dev-help", name: "РїРѕРјРѕС‰СЊ", type: "text" },
+      { id: "dev-showcase", name: "РїРѕРєР°Р·Р°С‚СЊ-РїСЂРѕРµРєС‚", type: "text" },
+      { id: "dev-voice", name: "РІРѕР№СЃ-РєРѕРјРЅР°С‚Р°", type: "voice" },
     ],
   },
   {
     id: "games",
-    name: "Игровая тусовка",
+    name: "РРіСЂРѕРІР°СЏ С‚СѓСЃРѕРІРєР°",
     tag: "GG",
-    members: ["Игорь", "Настя", "Пётр", "Лена"],
+    members: ["РРіРѕСЂСЊ", "РќР°СЃС‚СЏ", "РџС‘С‚СЂ", "Р›РµРЅР°"],
     channels: [
-      { id: "games-general", name: "общий", type: "text" },
-      { id: "games-lfg", name: "ищу-пати", type: "text" },
-      { id: "games-memes", name: "мемы", type: "text" },
-      { id: "games-voice", name: "войс", type: "voice" },
+      { id: "games-general", name: "РѕР±С‰РёР№", type: "text" },
+      { id: "games-lfg", name: "РёС‰Сѓ-РїР°С‚Рё", type: "text" },
+      { id: "games-memes", name: "РјРµРјС‹", type: "text" },
+      { id: "games-voice", name: "РІРѕР№СЃ", type: "voice" },
     ],
   },
 ];
 
 const INITIAL_MESSAGES = {
   "dev-general": [
-    { id: 1, author: "Аня", text: "Привет! Кто-нибудь разбирался с вебсокетами на этой неделе?", time: "10:12", type: "text" },
-    { id: 2, author: "Максим", text: "Да, могу помочь, что не работает?", time: "10:14", type: "text" },
+    { id: 1, author: "РђРЅСЏ", text: "РџСЂРёРІРµС‚! РљС‚Рѕ-РЅРёР±СѓРґСЊ СЂР°Р·Р±РёСЂР°Р»СЃСЏ СЃ РІРµР±СЃРѕРєРµС‚Р°РјРё РЅР° СЌС‚РѕР№ РЅРµРґРµР»Рµ?", time: "10:12", type: "text" },
+    { id: 2, author: "РњР°РєСЃРёРј", text: "Р”Р°, РјРѕРіСѓ РїРѕРјРѕС‡СЊ, С‡С‚Рѕ РЅРµ СЂР°Р±РѕС‚Р°РµС‚?", time: "10:14", type: "text" },
   ],
-  "dev-help": [{ id: 1, author: "Света", text: "Не собирается билд, ругается на импорт", time: "09:40", type: "text" }],
-  "dev-showcase": [{ id: 1, author: "Максим", text: "Запустил свой первый бот, зацените", time: "18:02", type: "text" }],
+  "dev-help": [{ id: 1, author: "РЎРІРµС‚Р°", text: "РќРµ СЃРѕР±РёСЂР°РµС‚СЃСЏ Р±РёР»Рґ, СЂСѓРіР°РµС‚СЃСЏ РЅР° РёРјРїРѕСЂС‚", time: "09:40", type: "text" }],
+  "dev-showcase": [{ id: 1, author: "РњР°РєСЃРёРј", text: "Р—Р°РїСѓСЃС‚РёР» СЃРІРѕР№ РїРµСЂРІС‹Р№ Р±РѕС‚, Р·Р°С†РµРЅРёС‚Рµ", time: "18:02", type: "text" }],
   "games-general": [
-    { id: 1, author: "Игорь", text: "Го сегодня вечером?", time: "20:05", type: "text" },
-    { id: 2, author: "Настя", text: "Я за", time: "20:06", type: "text" },
+    { id: 1, author: "РРіРѕСЂСЊ", text: "Р“Рѕ СЃРµРіРѕРґРЅСЏ РІРµС‡РµСЂРѕРј?", time: "20:05", type: "text" },
+    { id: 2, author: "РќР°СЃС‚СЏ", text: "РЇ Р·Р°", time: "20:06", type: "text" },
   ],
-  "games-lfg": [{ id: 1, author: "Пётр", text: "Нужен ещё один в команду, ранг неважен", time: "19:30", type: "text" }],
-  "games-memes": [{ id: 1, author: "Лена", text: "Нашла картинку прямо про нас", time: "12:00", type: "text" }],
+  "games-lfg": [{ id: 1, author: "РџС‘С‚СЂ", text: "РќСѓР¶РµРЅ РµС‰С‘ РѕРґРёРЅ РІ РєРѕРјР°РЅРґСѓ, СЂР°РЅРі РЅРµРІР°Р¶РµРЅ", time: "19:30", type: "text" }],
+  "games-memes": [{ id: 1, author: "Р›РµРЅР°", text: "РќР°С€Р»Р° РєР°СЂС‚РёРЅРєСѓ РїСЂСЏРјРѕ РїСЂРѕ РЅР°СЃ", time: "12:00", type: "text" }],
 };
 
 async function hashPassword(password) {
@@ -331,7 +344,7 @@ async function loadVoiceParticipants(channelId) {
 // --- Real voice (WebRTC) ---
 // Two public STUN servers, no TURN. This lets browsers discover their public
 // address so two peers can connect directly. On strict/symmetric NATs (common
-// on some mobile/corporate networks) a direct connection can still fail —
+// on some mobile/corporate networks) a direct connection can still fail вЂ”
 // that needs a paid TURN relay, which isn't included here.
 const ICE_SERVERS = [
   { urls: "stun:stun.l.google.com:19302" },
@@ -358,7 +371,7 @@ async function writeSignal(channelId, pairKey, updater) {
     const next = updater(current);
     await storage.set(voiceSignalKey(channelId, pairKey), JSON.stringify(next), true);
   } catch (err) {
-    // best-effort — the next poll tick will retry
+    // best-effort вЂ” the next poll tick will retry
   }
 }
 async function clearSignal(channelId, pairKey) {
@@ -412,10 +425,10 @@ function LanguageScreen({ onSelect }) {
     <div style={styles.loginWrap}>
       <div style={styles.loginCard}>
         <div style={styles.loginDot} />
-        <h1 style={styles.loginTitle}>Волна / Wave</h1>
-        <p style={styles.loginSubtitle}>Выбери язык / Choose a language</p>
+        <h1 style={styles.loginTitle}>Р’РѕР»РЅР° / Wave</h1>
+        <p style={styles.loginSubtitle}>Р’С‹Р±РµСЂРё СЏР·С‹Рє / Choose a language</p>
         <button onClick={() => onSelect("ru")} style={styles.loginButton} className="wave-btn">
-          Русский
+          Р СѓСЃСЃРєРёР№
         </button>
         <button
           onClick={() => onSelect("en")}
@@ -424,7 +437,7 @@ function LanguageScreen({ onSelect }) {
         >
           English
         </button>
-        <p style={styles.loginHint}>Это можно изменить позже в приложении / You can change this later in the app</p>
+        <p style={styles.loginHint}>Р­С‚Рѕ РјРѕР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ РїРѕР·Р¶Рµ РІ РїСЂРёР»РѕР¶РµРЅРёРё / You can change this later in the app</p>
       </div>
     </div>
   );
@@ -722,7 +735,7 @@ function VoiceChannelView({ channelId, channelName, participants, username, join
           }
           appliedCandidatesRef.current[other] = remoteList.length;
         } catch (err) {
-          // transient signaling hiccup — retried on the next tick
+          // transient signaling hiccup вЂ” retried on the next tick
         }
       }
       Object.keys(peersRef.current).forEach((other) => {
@@ -782,7 +795,7 @@ function VoiceChannelView({ channelId, channelName, participants, username, join
                 {isMe && muted ? " (mute)" : ""}
               </span>
               {status === "connecting" && (
-                <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--muted)" }}>…</span>
+                <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--muted)" }}>вЂ¦</span>
               )}
               <Mic
                 size={14}
@@ -840,6 +853,7 @@ export default function App() {
   const [typingUser, setTypingUser] = useState(null);
   const [unreadCounts, setUnreadCounts] = useState({});
   const [toasts, setToasts] = useState([]);
+  const [showSettings, setShowSettings] = useState(false);
   const scrollRef = useRef(null);
   const fileInputRef = useRef(null);
   const lastSeenRef = useRef({});
@@ -1040,7 +1054,7 @@ export default function App() {
   if (!sessionChecked) {
     return (
       <div style={styles.loginWrap}>
-        <p style={{ color: "var(--muted)", fontSize: 14 }}>Загрузка… / Loading…</p>
+        <p style={{ color: "var(--muted)", fontSize: 14 }}>Р—Р°РіСЂСѓР·РєР°вЂ¦ / LoadingвЂ¦</p>
       </div>
     );
   }
@@ -1379,11 +1393,26 @@ export default function App() {
           <span style={{ fontSize: 13, fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
             {username}
           </span>
+          <button onClick={() => setShowSettings(true)} style={styles.logoutButton} className="wave-btn" aria-label={t.settingsTitle}>
+            <Settings size={16} />
+          </button>
           <button onClick={handleLogout} style={styles.logoutButton} className="wave-btn" aria-label={t.logout}>
             <LogOut size={16} />
           </button>
         </div>
       </div>
+
+      {showSettings && (
+        <SettingsPanel
+          username={username}
+          lang={lang || "ru"}
+          t={t}
+          storage={storage}
+          onToggleLang={handleToggleLang}
+          onClose={() => setShowSettings(false)}
+          onLogout={handleLogout}
+        />
+      )}
 
       <div style={{ ...styles.chatPanel, display: mobilePanel === "chat" ? "flex" : "none" }} className="wave-chat-panel">
         <div style={styles.chatHeader}>
@@ -1537,7 +1566,7 @@ export default function App() {
 
             {typingUser && (
               <p style={styles.typingIndicator}>
-                <span className="wave-typing-dots">●●●</span> {t.typingOne(typingUser)}
+                <span className="wave-typing-dots">в—Џв—Џв—Џ</span> {t.typingOne(typingUser)}
               </p>
             )}
 
@@ -1632,7 +1661,7 @@ export default function App() {
           <div style={styles.memberDrawer}>
             <div style={styles.memberDrawerHeader}>
               <span style={{ fontWeight: 800 }}>
-                {t.members} — {onlineMembers.length}
+                {t.members} вЂ” {onlineMembers.length}
               </span>
               <button onClick={() => setShowMembers(false)} style={styles.logoutButton} className="wave-btn" aria-label={t.close}>
                 <X size={18} />
@@ -1679,7 +1708,7 @@ export default function App() {
               />
             </div>
             <div style={{ overflowY: "auto", flex: 1 }}>
-              {globalLoading && <p style={{ color: "var(--muted)", fontSize: 13, padding: "10px 2px" }}>…</p>}
+              {globalLoading && <p style={{ color: "var(--muted)", fontSize: 13, padding: "10px 2px" }}>вЂ¦</p>}
               {!globalLoading && globalQuery.trim() && globalResults.length === 0 && (
                 <p style={{ color: "var(--muted)", fontSize: 13, padding: "10px 2px" }}>{t.nothingFound}</p>
               )}
@@ -1706,6 +1735,551 @@ export default function App() {
   );
 }
 
+// --- Telegram-style full-screen settings panel -----------------------------
+const SETTINGS_STRINGS = {
+  ru: {
+    settings: "РќР°СЃС‚СЂРѕР№РєРё",
+    editProfile: "Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РїСЂРѕС„РёР»СЊ",
+    editProfileSub: "РРјСЏ, С„РѕС‚Рѕ, СЃС‚Р°С‚СѓСЃ",
+    account: "РђРєРєР°СѓРЅС‚ Рё РїСЂРёРІСЏР·РєР°",
+    accountSub: "РџРѕС‡С‚Р°, С‚РµР»РµС„РѕРЅ, РїР°СЂРѕР»СЊ",
+    notifications: "РЈРІРµРґРѕРјР»РµРЅРёСЏ",
+    notificationsSub: "Р—РІСѓРєРё Рё РїСЂРµРІСЊСЋ СЃРѕРѕР±С‰РµРЅРёР№",
+    appearance: "РћС„РѕСЂРјР»РµРЅРёРµ",
+    appearanceSub: "Р¦РІРµС‚ С‚РµРјС‹ РїСЂРёР»РѕР¶РµРЅРёСЏ",
+    language: "РЇР·С‹Рє",
+    privacy: "РџСЂРёРІР°С‚РЅРѕСЃС‚СЊ",
+    privacySub: "РљС‚Рѕ РІРёРґРёС‚ С‚РІРѕР№ РїСЂРѕС„РёР»СЊ",
+    logout: "Р’С‹Р№С‚Рё РёР· Р°РєРєР°СѓРЅС‚Р°",
+    logoutConfirm: "РўРѕС‡РЅРѕ РІС‹Р№С‚Рё РёР· Р°РєРєР°СѓРЅС‚Р° РЅР° СЌС‚РѕРј СѓСЃС‚СЂРѕР№СЃС‚РІРµ?",
+    logoutConfirmYes: "Р”Р°, РІС‹Р№С‚Рё",
+    logoutConfirmNo: "РћС‚РјРµРЅР°",
+    bio: "Рћ СЃРµР±Рµ",
+    bioPlaceholder: "Р Р°СЃСЃРєР°Р¶Рё Рѕ СЃРµР±Рµ РїР°СЂСѓ СЃР»РѕРІвЂ¦",
+    name: "РРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ",
+    save: "РЎРѕС…СЂР°РЅРёС‚СЊ",
+    saved: "РЎРѕС…СЂР°РЅРµРЅРѕ",
+    bindEmail: "РџСЂРёРІСЏР·Р°С‚СЊ РїРѕС‡С‚Сѓ",
+    bindPhone: "РџСЂРёРІСЏР·Р°С‚СЊ С‚РµР»РµС„РѕРЅ",
+    emailPlaceholder: "you@example.com",
+    phonePlaceholder: "+7 900 000-00-00",
+    notBound: "РЅРµ РїСЂРёРІСЏР·Р°РЅРѕ",
+    sound: "Р—РІСѓРє СѓРІРµРґРѕРјР»РµРЅРёР№",
+    preview: "РџРѕРєР°Р·С‹РІР°С‚СЊ С‚РµРєСЃС‚ СЃРѕРѕР±С‰РµРЅРёСЏ",
+    theme: "Р¦РІРµС‚ Р°РєС†РµРЅС‚Р°",
+    online: "РІ СЃРµС‚Рё",
+    version: "Р’РѕР»РЅР° В· РґРµРјРѕ-РІРµСЂСЃРёСЏ 1.0",
+    changePhoto: "РЎРјРµРЅРёС‚СЊ С†РІРµС‚ С„РѕС‚Рѕ",
+  },
+  en: {
+    settings: "Settings",
+    editProfile: "Edit Profile",
+    editProfileSub: "Name, photo, bio",
+    account: "Account & Binding",
+    accountSub: "Email, phone, password",
+    notifications: "Notifications",
+    notificationsSub: "Sounds and message previews",
+    appearance: "Appearance",
+    appearanceSub: "App accent color",
+    language: "Language",
+    privacy: "Privacy",
+    privacySub: "Who can see your profile",
+    logout: "Log Out",
+    logoutConfirm: "Log out of this account on this device?",
+    logoutConfirmYes: "Yes, log out",
+    logoutConfirmNo: "Cancel",
+    bio: "Bio",
+    bioPlaceholder: "Tell people a bit about yourselfвЂ¦",
+    name: "Username",
+    save: "Save",
+    saved: "Saved",
+    bindEmail: "Bind email",
+    bindPhone: "Bind phone",
+    emailPlaceholder: "you@example.com",
+    phonePlaceholder: "+1 555 000-0000",
+    notBound: "not linked",
+    sound: "Notification sound",
+    preview: "Show message text",
+    theme: "Accent color",
+    online: "online",
+    version: "Wave В· demo build 1.0",
+    changePhoto: "Change photo color",
+  },
+};
+
+const ACCENT_OPTIONS = ["#F2A93B", "#2DD4BF", "#FB7159", "#5B8DEF", "#E8608F", "#34D399", "#A78BFA", "#F472B6"];
+
+function SettingsRow({ icon, iconBg, title, subtitle, onClick, danger, right }) {
+  return (
+    <button onClick={onClick} className="wave-btn wave-settings-row" style={settingsStyles.row}>
+      <span style={{ ...settingsStyles.rowIcon, background: iconBg || "var(--accent)" }}>{icon}</span>
+      <span style={settingsStyles.rowText}>
+        <span style={{ color: danger ? "#E5534B" : "var(--text)", fontSize: 15, fontWeight: 500 }}>{title}</span>
+        {subtitle && <span style={settingsStyles.rowSub}>{subtitle}</span>}
+      </span>
+      {right !== undefined ? right : !danger && <ChevronRight size={17} style={{ opacity: 0.35, flexShrink: 0 }} />}
+    </button>
+  );
+}
+
+function SettingsToggle({ checked, onChange }) {
+  return (
+    <button
+      onClick={() => onChange(!checked)}
+      className="wave-btn"
+      style={{ ...settingsStyles.toggle, background: checked ? "var(--accent)" : "#3A4150" }}
+      aria-pressed={checked}
+    >
+      <span style={{ ...settingsStyles.toggleDot, transform: checked ? "translateX(16px)" : "translateX(0)" }} />
+    </button>
+  );
+}
+
+function SettingsHeader({ title, onBack }) {
+  return (
+    <div style={settingsStyles.header}>
+      <button onClick={onBack} className="wave-btn" style={settingsStyles.headerBack} aria-label="Back">
+        <ChevronLeft size={22} />
+      </button>
+      <span style={settingsStyles.headerTitle}>{title}</span>
+    </div>
+  );
+}
+
+function SettingsPanel({ username, lang, t, storage, onToggleLang, onClose, onLogout }) {
+  const s = SETTINGS_STRINGS[lang] || SETTINGS_STRINGS.ru;
+  const [page, setPage] = useState("main");
+  const [anim, setAnim] = useState("wave-settings-in");
+  const [bio, setBio] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [accent, setAccent] = useState("#F2A93B");
+  const [soundOn, setSoundOn] = useState(true);
+  const [previewOn, setPreviewOn] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [justSaved, setJustSaved] = useState(false);
+  const [confirmingLogout, setConfirmingLogout] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const acc = await storage.get(`account:${username}`, true).catch(() => null);
+        if (!cancelled && acc && acc.value) {
+          const data = JSON.parse(acc.value);
+          setBio(data.bio || "");
+          setEmail(data.email || "");
+          setPhone(data.phone || "");
+          setAccent(data.accent || "#F2A93B");
+        }
+        const prefs = await storage.get(`notif-prefs:${username}`, false).catch(() => null);
+        if (!cancelled && prefs && prefs.value) {
+          const data = JSON.parse(prefs.value);
+          setSoundOn(data.soundOn !== false);
+          setPreviewOn(data.previewOn !== false);
+        }
+      } catch (err) {
+        // no saved settings yet, defaults are fine
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [username, storage]);
+
+  function goTo(next) {
+    setAnim("wave-settings-forward");
+    setPage(next);
+  }
+  function goBack() {
+    if (page === "main") {
+      onClose();
+      return;
+    }
+    setAnim("wave-settings-back");
+    setPage("main");
+  }
+
+  async function persistAccount(next) {
+    setSaving(true);
+    try {
+      const result = await storage.set(`account:${username}`, JSON.stringify(next), true);
+      if (result) {
+        setJustSaved(true);
+        setTimeout(() => setJustSaved(false), 1600);
+      }
+    } catch (err) {
+      // ignore, keep local state so the field doesn't visually revert
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function persistPrefs(next) {
+    try {
+      await storage.set(`notif-prefs:${username}`, JSON.stringify(next), false);
+    } catch (err) {
+      // per-device preference, safe to ignore failures silently
+    }
+  }
+
+  const initialsText = initials(username);
+
+  return (
+    <div style={settingsStyles.overlay} className="wave-settings-overlay">
+      <div key={page} style={settingsStyles.page} className={`wave-settings-page ${anim}`}>
+        {page === "main" && (
+          <>
+            <SettingsHeader title={s.settings} onBack={goBack} />
+            <div style={settingsStyles.scroll}>
+              <div style={settingsStyles.profileCard}>
+                <div style={settingsStyles.bigAvatarWrap}>
+                  <div style={{ ...settingsStyles.bigAvatar, background: accent }}>{initialsText}</div>
+                  <span style={settingsStyles.bigAvatarDot} />
+                </div>
+                <div style={{ fontSize: 18, fontWeight: 700 }}>{username}</div>
+                <div style={{ fontSize: 13, color: "var(--online)" }}>{s.online}</div>
+              </div>
+
+              <div style={settingsStyles.group}>
+                <SettingsRow icon={<Pencil size={16} />} iconBg="#5B8DEF" title={s.editProfile} subtitle={s.editProfileSub} onClick={() => goTo("profile")} />
+                <SettingsRow icon={<Shield size={16} />} iconBg="#34D399" title={s.account} subtitle={s.accountSub} onClick={() => goTo("account")} />
+              </div>
+
+              <div style={settingsStyles.group}>
+                <SettingsRow icon={<Bell size={16} />} iconBg="#F2A93B" title={s.notifications} subtitle={s.notificationsSub} onClick={() => goTo("notifications")} />
+                <SettingsRow icon={<Palette size={16} />} iconBg="#E8608F" title={s.appearance} subtitle={s.appearanceSub} onClick={() => goTo("appearance")} />
+                <SettingsRow
+                  icon={<Globe size={16} />}
+                  iconBg="#8B94A3"
+                  title={s.language}
+                  subtitle={lang === "ru" ? "Р СѓСЃСЃРєРёР№" : "English"}
+                  onClick={onToggleLang}
+                />
+              </div>
+
+              <div style={settingsStyles.group}>
+                {!confirmingLogout ? (
+                  <SettingsRow icon={<LogOut size={16} />} iconBg="#E5534B" title={s.logout} danger onClick={() => setConfirmingLogout(true)} />
+                ) : (
+                  <div style={settingsStyles.confirmBox}>
+                    <div style={{ fontSize: 13, color: "var(--muted)", marginBottom: 10 }}>{s.logoutConfirm}</div>
+                    <div style={{ display: "flex", gap: 8 }}>
+                      <button onClick={onLogout} className="wave-btn" style={settingsStyles.dangerBtn}>{s.logoutConfirmYes}</button>
+                      <button onClick={() => setConfirmingLogout(false)} className="wave-btn" style={settingsStyles.cancelBtn}>{s.logoutConfirmNo}</button>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div style={settingsStyles.version}>{s.version}</div>
+            </div>
+          </>
+        )}
+
+        {page === "profile" && (
+          <>
+            <SettingsHeader title={s.editProfile} onBack={goBack} />
+            <div style={settingsStyles.scroll}>
+              <div style={settingsStyles.profileCard}>
+                <div style={settingsStyles.bigAvatarWrap}>
+                  <div style={{ ...settingsStyles.bigAvatar, background: accent }}>{initialsText}</div>
+                  <button
+                    className="wave-btn"
+                    style={settingsStyles.cameraBtn}
+                    aria-label={s.changePhoto}
+                    onClick={() => {
+                      const i = ACCENT_OPTIONS.indexOf(accent);
+                      const next = ACCENT_OPTIONS[(i + 1) % ACCENT_OPTIONS.length];
+                      setAccent(next);
+                      persistAccount({ bio, email, phone, accent: next });
+                    }}
+                  >
+                    <Camera size={14} />
+                  </button>
+                </div>
+              </div>
+              <div style={settingsStyles.field}>
+                <label style={settingsStyles.label}>{s.name}</label>
+                <input value={username} disabled style={{ ...settingsStyles.input, opacity: 0.6 }} />
+              </div>
+              <div style={settingsStyles.field}>
+                <label style={settingsStyles.label}>{s.bio}</label>
+                <textarea
+                  value={bio}
+                  onChange={(e) => setBio(e.target.value)}
+                  placeholder={s.bioPlaceholder}
+                  rows={3}
+                  style={{ ...settingsStyles.input, resize: "none", fontFamily: "inherit" }}
+                />
+              </div>
+              <button
+                className="wave-btn"
+                style={settingsStyles.saveBtn}
+                onClick={() => persistAccount({ bio, email, phone, accent })}
+              >
+                {saving ? "вЂ¦" : justSaved ? <Check size={16} /> : s.save}
+              </button>
+            </div>
+          </>
+        )}
+
+        {page === "account" && (
+          <>
+            <SettingsHeader title={s.account} onBack={goBack} />
+            <div style={settingsStyles.scroll}>
+              <div style={settingsStyles.field}>
+                <label style={settingsStyles.label}>
+                  <Mail size={13} style={{ marginRight: 5, verticalAlign: -2 }} />
+                  {s.bindEmail}
+                </label>
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={s.emailPlaceholder}
+                  style={settingsStyles.input}
+                />
+              </div>
+              <div style={settingsStyles.field}>
+                <label style={settingsStyles.label}>
+                  <Phone size={13} style={{ marginRight: 5, verticalAlign: -2 }} />
+                  {s.bindPhone}
+                </label>
+                <input
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder={s.phonePlaceholder}
+                  style={settingsStyles.input}
+                />
+              </div>
+              <button
+                className="wave-btn"
+                style={settingsStyles.saveBtn}
+                onClick={() => persistAccount({ bio, email, phone, accent })}
+              >
+                {saving ? "вЂ¦" : justSaved ? <Check size={16} /> : s.save}
+              </button>
+            </div>
+          </>
+        )}
+
+        {page === "notifications" && (
+          <>
+            <SettingsHeader title={s.notifications} onBack={goBack} />
+            <div style={settingsStyles.scroll}>
+              <div style={settingsStyles.group}>
+                <SettingsRow
+                  icon={soundOn ? <Bell size={16} /> : <BellOff size={16} />}
+                  iconBg="#F2A93B"
+                  title={s.sound}
+                  onClick={() => {}}
+                  right={
+                    <SettingsToggle
+                      checked={soundOn}
+                      onChange={(v) => {
+                        setSoundOn(v);
+                        persistPrefs({ soundOn: v, previewOn });
+                      }}
+                    />
+                  }
+                />
+                <SettingsRow
+                  icon={<MessageCircle size={16} />}
+                  iconBg="#5B8DEF"
+                  title={s.preview}
+                  onClick={() => {}}
+                  right={
+                    <SettingsToggle
+                      checked={previewOn}
+                      onChange={(v) => {
+                        setPreviewOn(v);
+                        persistPrefs({ soundOn, previewOn: v });
+                      }}
+                    />
+                  }
+                />
+              </div>
+            </div>
+          </>
+        )}
+
+        {page === "appearance" && (
+          <>
+            <SettingsHeader title={s.appearance} onBack={goBack} />
+            <div style={settingsStyles.scroll}>
+              <div style={{ fontSize: 13, color: "var(--muted)", padding: "4px 4px 12px" }}>{s.theme}</div>
+              <div style={settingsStyles.swatchGrid}>
+                {ACCENT_OPTIONS.map((c) => (
+                  <button
+                    key={c}
+                    className="wave-btn"
+                    onClick={() => {
+                      setAccent(c);
+                      persistAccount({ bio, email, phone, accent: c });
+                    }}
+                    style={{ ...settingsStyles.swatch, background: c }}
+                    aria-label={c}
+                  >
+                    {accent === c && <Check size={18} color="#1A1A1A" />}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+const settingsStyles = {
+  overlay: {
+    position: "absolute",
+    inset: 0,
+    zIndex: 50,
+    background: "var(--bg)",
+    display: "flex",
+    overflow: "hidden",
+  },
+  page: { width: "100%", height: "100%", display: "flex", flexDirection: "column" },
+  header: {
+    display: "flex",
+    alignItems: "center",
+    gap: 4,
+    padding: "12px 8px",
+    borderBottom: "1px solid #23293280",
+    flexShrink: 0,
+  },
+  headerBack: { background: "transparent", border: "none", color: "var(--text)", cursor: "pointer", display: "flex", padding: 6 },
+  headerTitle: { fontSize: 16, fontWeight: 700 },
+  scroll: { flex: 1, overflowY: "auto", padding: "12px 16px 24px" },
+  profileCard: { display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: "16px 0 22px" },
+  bigAvatarWrap: { position: "relative" },
+  bigAvatar: {
+    width: 76,
+    height: 76,
+    borderRadius: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 26,
+    fontWeight: 800,
+    color: "#1A1A1A",
+  },
+  bigAvatarDot: {
+    position: "absolute",
+    bottom: 3,
+    right: 3,
+    width: 14,
+    height: 14,
+    borderRadius: "50%",
+    background: "var(--online)",
+    border: "3px solid var(--bg)",
+  },
+  cameraBtn: {
+    position: "absolute",
+    bottom: -2,
+    right: -2,
+    width: 26,
+    height: 26,
+    borderRadius: "50%",
+    background: "var(--accent)",
+    color: "#1A1A1A",
+    border: "3px solid var(--bg)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+  },
+  group: {
+    background: "var(--panel)",
+    borderRadius: 12,
+    marginBottom: 16,
+    overflow: "hidden",
+  },
+  row: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    gap: 12,
+    padding: "12px 14px",
+    background: "transparent",
+    border: "none",
+    borderBottom: "1px solid #23293280",
+    cursor: "pointer",
+    textAlign: "left",
+  },
+  rowIcon: {
+    width: 30,
+    height: 30,
+    borderRadius: 9,
+    flexShrink: 0,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "#1A1A1A",
+  },
+  rowText: { display: "flex", flexDirection: "column", flex: 1, minWidth: 0, gap: 1 },
+  rowSub: { fontSize: 12, color: "var(--muted)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" },
+  toggle: {
+    width: 38,
+    height: 22,
+    borderRadius: 20,
+    border: "none",
+    padding: 2,
+    cursor: "pointer",
+    flexShrink: 0,
+    transition: "background 0.18s ease",
+  },
+  toggleDot: {
+    display: "block",
+    width: 18,
+    height: 18,
+    borderRadius: "50%",
+    background: "#fff",
+    transition: "transform 0.18s ease",
+  },
+  confirmBox: { padding: 14 },
+  dangerBtn: { flex: 1, background: "#E5534B", color: "#fff", border: "none", borderRadius: 8, padding: "9px 0", fontWeight: 700, cursor: "pointer" },
+  cancelBtn: { flex: 1, background: "var(--elevated)", color: "var(--text)", border: "none", borderRadius: 8, padding: "9px 0", fontWeight: 600, cursor: "pointer" },
+  version: { textAlign: "center", fontSize: 12, color: "var(--muted)", padding: "8px 0 4px" },
+  field: { marginBottom: 16 },
+  label: { display: "block", fontSize: 12, color: "var(--muted)", marginBottom: 6, fontWeight: 600 },
+  input: {
+    width: "100%",
+    background: "var(--panel)",
+    border: "1px solid #23293280",
+    borderRadius: 10,
+    padding: "10px 12px",
+    color: "var(--text)",
+    fontSize: 14,
+    boxSizing: "border-box",
+  },
+  saveBtn: {
+    width: "100%",
+    background: "var(--accent)",
+    color: "#1A1A1A",
+    border: "none",
+    borderRadius: 10,
+    padding: "11px 0",
+    fontWeight: 700,
+    fontSize: 14,
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  swatchGrid: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 },
+  swatch: {
+    aspectRatio: "1",
+    borderRadius: 12,
+    border: "none",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+};
+
 const GLOBAL_STYLES = `
 @keyframes wave-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
 @keyframes wave-message-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -1717,9 +2291,18 @@ const GLOBAL_STYLES = `
 @keyframes wave-modal-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 @keyframes wave-typing-blink { 0%,100% { opacity: 0.25; } 50% { opacity: 1; } }
 @keyframes wave-toast-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@keyframes wave-settings-slide-in { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+@keyframes wave-settings-slide-forward { from { opacity: 0; transform: translateX(36px); } to { opacity: 1; transform: none; } }
+@keyframes wave-settings-slide-back { from { opacity: 0; transform: translateX(-36px); } to { opacity: 1; transform: none; } }
 .wave-btn { transition: transform 0.12s ease; }
 .wave-btn:active { transform: scale(0.93); }
 .wave-typing-dots { display: inline-block; letter-spacing: 2px; animation: wave-typing-blink 1.2s ease infinite; }
+.wave-settings-overlay { animation: wave-settings-slide-in 0.24s cubic-bezier(0.22, 1, 0.36, 1); }
+.wave-settings-page { animation-duration: 0.22s; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+.wave-settings-forward { animation-name: wave-settings-slide-forward; }
+.wave-settings-back { animation-name: wave-settings-slide-back; }
+.wave-settings-row:hover { background: var(--elevated); }
+.wave-settings-row:last-child { border-bottom: none !important; }
 @media (min-width: 768px) {
   .wave-channel-panel, .wave-chat-panel { display: flex !important; }
   .wave-back-button { display: none !important; }
