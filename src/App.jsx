@@ -82,11 +82,11 @@ const storage = {
 };
 
 const AVATAR_COLORS = ["#F2A93B", "#2DD4BF", "#FB7159", "#5B8DEF", "#E8608F", "#34D399"];
-const REACTIONS = ["рџ‘Ќ", "вќ¤пёЏ", "рџ‚", "рџ®", "рџ”Ґ", "рџ‘‹"];
+const REACTIONS = ["👍", "❤️", "😂", "😮", "🔥", "👋"];
 const STICKERS = [
-  "рџЋ‰", "рџђ±", "рџ‘‹", "рџ’Ї", "рџЌ•", "рџґ", "рџљЂ", "вќ¤пёЏ",
-  "рџ”Ґ", "рџЋ‚", "рџҐі", "рџ‚", "рџ‘Џ", "рџ¤ќ", "рџЊџ", "рџЋ®",
-  "в•", "рџЋµ", "рџЋ", "рџ¤Ї",
+  "🎉", "🐱", "👋", "💯", "🍕", "😴", "🚀", "❤️",
+  "🔥", "🎂", "🥳", "😂", "👏", "🤝", "🌟", "🎮",
+  "☕", "🎵", "😎", "🤯",
 ];
 const STICKER_ANIMATIONS = ["wave-sticker-pop", "wave-sticker-bounce", "wave-sticker-spin", "wave-sticker-wobble"];
 function stickerAnimFor(id) {
@@ -96,70 +96,70 @@ function stickerAnimFor(id) {
 
 const STRINGS = {
   ru: {
-    appName: "Р’РѕР»РЅР°",
-    tagline: "РљР°РЅР°Р»С‹ Рё С‡Р°С‚С‹ РґР»СЏ С‚РІРѕРµР№ РєРѕРјР°РЅРґС‹ РёР»Рё С‚СѓСЃРѕРІРєРё",
-    usernamePlaceholder: "РРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ",
-    passwordPlaceholder: "РџР°СЂРѕР»СЊ",
-    confirmPasswordPlaceholder: "РџРѕРІС‚РѕСЂРё РїР°СЂРѕР»СЊ",
-    needUsername: "Р’РІРµРґРё РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ",
-    needPassword: "Р’РІРµРґРё РїР°СЂРѕР»СЊ",
-    passwordTooShort: "РџР°СЂРѕР»СЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅРµ РєРѕСЂРѕС‡Рµ 4 СЃРёРјРІРѕР»РѕРІ",
-    passwordsMismatch: "РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚",
-    usernameTaken: "Р­С‚Рѕ РёРјСЏ СѓР¶Рµ Р·Р°РЅСЏС‚Рѕ, РІС‹Р±РµСЂРё РґСЂСѓРіРѕРµ",
-    saveFailed: "РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ СЃРѕС…СЂР°РЅРёС‚СЊ, РїРѕРїСЂРѕР±СѓР№ РµС‰С‘ СЂР°Р·",
-    userNotFound: "РўР°РєРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅРµС‚ вЂ” Р·Р°СЂРµРіРёСЃС‚СЂРёСЂСѓР№СЃСЏ",
-    wrongPassword: "РќРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ",
-    genericError: "Р§С‚Рѕ-С‚Рѕ РїРѕС€Р»Рѕ РЅРµ С‚Р°Рє, РїРѕРїСЂРѕР±СѓР№ РµС‰С‘ СЂР°Р·",
-    busy: "РЎРµРєСѓРЅРґСѓвЂ¦",
-    registerBtn: "Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ",
-    loginBtn: "Р’РѕР№С‚Рё",
-    toggleToRegister: "РќРµС‚ Р°РєРєР°СѓРЅС‚Р°? Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ",
-    toggleToLogin: "РЈР¶Рµ РµСЃС‚СЊ Р°РєРєР°СѓРЅС‚? Р’РѕР№С‚Рё",
+    appName: "Волна",
+    tagline: "Каналы и чаты для твоей команды или тусовки",
+    usernamePlaceholder: "Имя пользователя",
+    passwordPlaceholder: "Пароль",
+    confirmPasswordPlaceholder: "Повтори пароль",
+    needUsername: "Введи имя пользователя",
+    needPassword: "Введи пароль",
+    passwordTooShort: "Пароль должен быть не короче 4 символов",
+    passwordsMismatch: "Пароли не совпадают",
+    usernameTaken: "Это имя уже занято, выбери другое",
+    saveFailed: "Не получилось сохранить, попробуй ещё раз",
+    userNotFound: "Такого пользователя нет — зарегистрируйся",
+    wrongPassword: "Неверный пароль",
+    genericError: "Что-то пошло не так, попробуй ещё раз",
+    busy: "Секунду…",
+    registerBtn: "Зарегистрироваться",
+    loginBtn: "Войти",
+    toggleToRegister: "Нет аккаунта? Зарегистрироваться",
+    toggleToLogin: "Уже есть аккаунт? Войти",
     loginHint:
-      "Р’С…РѕРґ Р·Р°РїРѕРјРёРЅР°РµС‚СЃСЏ РЅР° СЌС‚РѕРј СѓСЃС‚СЂРѕР№СЃС‚РІРµ. РџР°СЂРѕР»СЊ С…СЂР°РЅРёС‚СЃСЏ РІ РІРёРґРµ С…РµС€Р° РІ РѕР±С‰РµРј С…СЂР°РЅРёР»РёС‰Рµ РїСЂРёР»РѕР¶РµРЅРёСЏ вЂ” СЌС‚Рѕ РґРµРјРѕ-СѓСЂРѕРІРµРЅСЊ Р·Р°С‰РёС‚С‹, РЅРµ РїРѕР»РЅРѕС†РµРЅРЅР°СЏ СЃРµСЂРІРµСЂРЅР°СЏ Р°РІС‚РѕСЂРёР·Р°С†РёСЏ.",
-    loadingSession: "Р—Р°РіСЂСѓР·РєР°вЂ¦",
-    chooseLanguage: "Р’С‹Р±РµСЂРё СЏР·С‹Рє",
-    chooseLanguageSubtitle: "Р­С‚Рѕ РјРѕР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ РїРѕР·Р¶Рµ РІ РїСЂРёР»РѕР¶РµРЅРёРё",
-    continueBtn: "РџСЂРѕРґРѕР»Р¶РёС‚СЊ",
-    directMessages: "Р›РёС‡РЅС‹Рµ СЃРѕРѕР±С‰РµРЅРёСЏ",
-    noOtherUsers: "РџРѕРєР° РЅРµС‚ РґСЂСѓРіРёС… Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№.",
-    channels: "РљР°РЅР°Р»С‹",
-    createServer: "РЎРѕР·РґР°С‚СЊ СЃРµСЂРІРµСЂ",
-    demoNoServer: "Р’ РґРµРјРѕ-РІРµСЂСЃРёРё РЅРµР»СЊР·СЏ СЃРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ СЃРµСЂРІРµСЂ",
-    searchServer: "РџРѕРёСЃРє РїРѕ",
-    searchMessages: "РџРѕРёСЃРє РїРѕ СЃРѕРѕР±С‰РµРЅРёСЏРј",
-    members: "РЈС‡Р°СЃС‚РЅРёРєРё",
-    you: "С‚С‹",
-    close: "Р—Р°РєСЂС‹С‚СЊ",
-    pickDialog: "Р’С‹Р±РµСЂРё, РєРѕРјСѓ РЅР°РїРёСЃР°С‚СЊ",
-    loadingMessages: "Р—Р°РіСЂСѓР·РєР° СЃРѕРѕР±С‰РµРЅРёР№вЂ¦",
-    nothingFound: "РќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ",
-    emptyChannel: "Р—РґРµСЃСЊ РїРѕРєР° С‚РёС…Рѕ. РќР°РїРёС€Рё РїРµСЂРІРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ.",
-    saveError: "РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ СЃРѕС…СЂР°РЅРёС‚СЊ РїРѕСЃР»РµРґРЅРµРµ РґРµР№СЃС‚РІРёРµ. РџРѕРїСЂРѕР±СѓР№ РµС‰С‘ СЂР°Р·.",
-    writeTo: "РќР°РїРёСЃР°С‚СЊ",
-    sendingPhoto: "РћС‚РїСЂР°РІРєР° С„РѕС‚РѕвЂ¦",
-    sendPhoto: "РћС‚РїСЂР°РІРёС‚СЊ С„РѕС‚Рѕ",
-    stickers: "РЎС‚РёРєРµСЂС‹",
-    send: "РћС‚РїСЂР°РІРёС‚СЊ",
-    addReaction: "Р”РѕР±Р°РІРёС‚СЊ СЂРµР°РєС†РёСЋ",
-    reply: "РћС‚РІРµС‚РёС‚СЊ",
-    cancelReply: "РћС‚РјРµРЅРёС‚СЊ РѕС‚РІРµС‚",
-    replyingTo: "РћС‚РІРµС‚",
-    photoLabel: "Р¤РѕС‚Рѕ",
-    imageAlt: "РР·РѕР±СЂР°Р¶РµРЅРёРµ",
-    typingOne: (name) => `${name} РїРµС‡Р°С‚Р°РµС‚вЂ¦`,
+      "Вход запоминается на этом устройстве. Пароль хранится в виде хеша в общем хранилище приложения — это демо-уровень защиты, не полноценная серверная авторизация.",
+    loadingSession: "Загрузка…",
+    chooseLanguage: "Выбери язык",
+    chooseLanguageSubtitle: "Это можно изменить позже в приложении",
+    continueBtn: "Продолжить",
+    directMessages: "Личные сообщения",
+    noOtherUsers: "Пока нет других зарегистрированных пользователей.",
+    channels: "Каналы",
+    createServer: "Создать сервер",
+    demoNoServer: "В демо-версии нельзя создать новый сервер",
+    searchServer: "Поиск по",
+    searchMessages: "Поиск по сообщениям",
+    members: "Участники",
+    you: "ты",
+    close: "Закрыть",
+    pickDialog: "Выбери, кому написать",
+    loadingMessages: "Загрузка сообщений…",
+    nothingFound: "Ничего не найдено",
+    emptyChannel: "Здесь пока тихо. Напиши первое сообщение.",
+    saveError: "Не получилось сохранить последнее действие. Попробуй ещё раз.",
+    writeTo: "Написать",
+    sendingPhoto: "Отправка фото…",
+    sendPhoto: "Отправить фото",
+    stickers: "Стикеры",
+    send: "Отправить",
+    addReaction: "Добавить реакцию",
+    reply: "Ответить",
+    cancelReply: "Отменить ответ",
+    replyingTo: "Ответ",
+    photoLabel: "Фото",
+    imageAlt: "Изображение",
+    typingOne: (name) => `${name} печатает…`,
     voiceDemoHint:
-      "Р“РѕР»РѕСЃРѕРІРѕР№ РєР°РЅР°Р» РёСЃРїРѕР»СЊР·СѓРµС‚ WebRTC РЅР°РїСЂСЏРјСѓСЋ РјРµР¶РґСѓ Р±СЂР°СѓР·РµСЂР°РјРё (Р±РµР· TURN-СЃРµСЂРІРµСЂР°) вЂ” РІ Р±РѕР»СЊС€РёРЅСЃС‚РІРµ СЃРµС‚РµР№ Р·РІСѓРє РїРѕР№РґС‘С‚, РЅРѕ РЅР° РЅРµРєРѕС‚РѕСЂС‹С… РјРѕР±РёР»СЊРЅС‹С…/РєРѕСЂРїРѕСЂР°С‚РёРІРЅС‹С… СЃРµС‚СЏС… СЃ Р¶С‘СЃС‚РєРёРј NAT СЃРѕРµРґРёРЅРµРЅРёРµ РјРѕР¶РµС‚ РЅРµ СѓСЃС‚Р°РЅРѕРІРёС‚СЊСЃСЏ.",
-    voiceNoOne: "РџРѕРєР° РЅРёРєРѕРіРѕ РЅРµС‚ РІ РєР°РЅР°Р»Рµ",
-    joinVoice: (name) => "Р’РѕР№С‚Рё РІ " + name,
-    leaveVoice: (name) => "Р’С‹Р№С‚Рё РёР· " + name,
-    mute: "Р’С‹РєР»СЋС‡РёС‚СЊ РјРёРєСЂРѕС„РѕРЅ",
-    unmute: "Р’РєР»СЋС‡РёС‚СЊ РјРёРєСЂРѕС„РѕРЅ",
-    logout: "Р’С‹Р№С‚Рё",
-    chooseImage: "Р’С‹Р±РµСЂРё С„Р°Р№Р» РёР·РѕР±СЂР°Р¶РµРЅРёСЏ",
-    switchLanguage: "РЎРјРµРЅРёС‚СЊ СЏР·С‹Рє",
-    newMessageIn: (name) => `РќРѕРІРѕРµ РІ ${name}`,
-    settingsTitle: "РќР°СЃС‚СЂРѕР№РєРё",
+      "Голосовой канал использует WebRTC напрямую между браузерами (без TURN-сервера) — в большинстве сетей звук пойдёт, но на некоторых мобильных/корпоративных сетях с жёстким NAT соединение может не установиться.",
+    voiceNoOne: "Пока никого нет в канале",
+    joinVoice: (name) => "Войти в " + name,
+    leaveVoice: (name) => "Выйти из " + name,
+    mute: "Выключить микрофон",
+    unmute: "Включить микрофон",
+    logout: "Выйти",
+    chooseImage: "Выбери файл изображения",
+    switchLanguage: "Сменить язык",
+    newMessageIn: (name) => `Новое в ${name}`,
+    settingsTitle: "Настройки",
   },
   en: {
     appName: "Wave",
@@ -173,17 +173,17 @@ const STRINGS = {
     passwordsMismatch: "Passwords don't match",
     usernameTaken: "That name is taken, pick another",
     saveFailed: "Couldn't save, try again",
-    userNotFound: "No such user вЂ” sign up instead",
+    userNotFound: "No such user — sign up instead",
     wrongPassword: "Wrong password",
     genericError: "Something went wrong, try again",
-    busy: "One secвЂ¦",
+    busy: "One sec…",
     registerBtn: "Sign up",
     loginBtn: "Log in",
     toggleToRegister: "No account? Sign up",
     toggleToLogin: "Already have an account? Log in",
     loginHint:
-      "Your session is remembered on this device. The password is stored as a hash in the app's shared storage вЂ” this is demo-level protection, not real server auth.",
-    loadingSession: "LoadingвЂ¦",
+      "Your session is remembered on this device. The password is stored as a hash in the app's shared storage — this is demo-level protection, not real server auth.",
+    loadingSession: "Loading…",
     chooseLanguage: "Choose a language",
     chooseLanguageSubtitle: "You can change this later in the app",
     continueBtn: "Continue",
@@ -198,12 +198,12 @@ const STRINGS = {
     you: "you",
     close: "Close",
     pickDialog: "Pick who to message",
-    loadingMessages: "Loading messagesвЂ¦",
+    loadingMessages: "Loading messages…",
     nothingFound: "Nothing found",
     emptyChannel: "It's quiet here. Send the first message.",
     saveError: "Couldn't save your last action. Try again.",
     writeTo: "Message",
-    sendingPhoto: "Sending photoвЂ¦",
+    sendingPhoto: "Sending photo…",
     sendPhoto: "Send a photo",
     stickers: "Stickers",
     send: "Send",
@@ -213,9 +213,9 @@ const STRINGS = {
     replyingTo: "Replying to",
     photoLabel: "Photo",
     imageAlt: "Image",
-    typingOne: (name) => `${name} is typingвЂ¦`,
+    typingOne: (name) => `${name} is typing…`,
     voiceDemoHint:
-      "This voice channel uses WebRTC directly between browsers (no TURN server) вЂ” audio works on most networks, but strict NATs (some mobile/corporate networks) may fail to connect.",
+      "This voice channel uses WebRTC directly between browsers (no TURN server) — audio works on most networks, but strict NATs (some mobile/corporate networks) may fail to connect.",
     voiceNoOne: "No one here yet",
     joinVoice: (name) => "Join " + name,
     leaveVoice: (name) => "Leave " + name,
@@ -246,43 +246,43 @@ function dmChannelId(a, b) {
 const DEMO_SERVERS = [
   {
     id: "dev",
-    name: "РљР»СѓР± СЂР°Р·СЂР°Р±РѕС‚РєРё",
+    name: "Клуб разработки",
     tag: "DEV",
-    members: ["РђРЅСЏ", "РњР°РєСЃРёРј", "РЎРІРµС‚Р°"],
+    members: ["Аня", "Максим", "Света"],
     channels: [
-      { id: "dev-general", name: "РѕР±С‰РёР№", type: "text" },
-      { id: "dev-help", name: "РїРѕРјРѕС‰СЊ", type: "text" },
-      { id: "dev-showcase", name: "РїРѕРєР°Р·Р°С‚СЊ-РїСЂРѕРµРєС‚", type: "text" },
-      { id: "dev-voice", name: "РІРѕР№СЃ-РєРѕРјРЅР°С‚Р°", type: "voice" },
+      { id: "dev-general", name: "общий", type: "text" },
+      { id: "dev-help", name: "помощь", type: "text" },
+      { id: "dev-showcase", name: "показать-проект", type: "text" },
+      { id: "dev-voice", name: "войс-комната", type: "voice" },
     ],
   },
   {
     id: "games",
-    name: "РРіСЂРѕРІР°СЏ С‚СѓСЃРѕРІРєР°",
+    name: "Игровая тусовка",
     tag: "GG",
-    members: ["РРіРѕСЂСЊ", "РќР°СЃС‚СЏ", "РџС‘С‚СЂ", "Р›РµРЅР°"],
+    members: ["Игорь", "Настя", "Пётр", "Лена"],
     channels: [
-      { id: "games-general", name: "РѕР±С‰РёР№", type: "text" },
-      { id: "games-lfg", name: "РёС‰Сѓ-РїР°С‚Рё", type: "text" },
-      { id: "games-memes", name: "РјРµРјС‹", type: "text" },
-      { id: "games-voice", name: "РІРѕР№СЃ", type: "voice" },
+      { id: "games-general", name: "общий", type: "text" },
+      { id: "games-lfg", name: "ищу-пати", type: "text" },
+      { id: "games-memes", name: "мемы", type: "text" },
+      { id: "games-voice", name: "войс", type: "voice" },
     ],
   },
 ];
 
 const INITIAL_MESSAGES = {
   "dev-general": [
-    { id: 1, author: "РђРЅСЏ", text: "РџСЂРёРІРµС‚! РљС‚Рѕ-РЅРёР±СѓРґСЊ СЂР°Р·Р±РёСЂР°Р»СЃСЏ СЃ РІРµР±СЃРѕРєРµС‚Р°РјРё РЅР° СЌС‚РѕР№ РЅРµРґРµР»Рµ?", time: "10:12", type: "text" },
-    { id: 2, author: "РњР°РєСЃРёРј", text: "Р”Р°, РјРѕРіСѓ РїРѕРјРѕС‡СЊ, С‡С‚Рѕ РЅРµ СЂР°Р±РѕС‚Р°РµС‚?", time: "10:14", type: "text" },
+    { id: 1, author: "Аня", text: "Привет! Кто-нибудь разбирался с вебсокетами на этой неделе?", time: "10:12", type: "text" },
+    { id: 2, author: "Максим", text: "Да, могу помочь, что не работает?", time: "10:14", type: "text" },
   ],
-  "dev-help": [{ id: 1, author: "РЎРІРµС‚Р°", text: "РќРµ СЃРѕР±РёСЂР°РµС‚СЃСЏ Р±РёР»Рґ, СЂСѓРіР°РµС‚СЃСЏ РЅР° РёРјРїРѕСЂС‚", time: "09:40", type: "text" }],
-  "dev-showcase": [{ id: 1, author: "РњР°РєСЃРёРј", text: "Р—Р°РїСѓСЃС‚РёР» СЃРІРѕР№ РїРµСЂРІС‹Р№ Р±РѕС‚, Р·Р°С†РµРЅРёС‚Рµ", time: "18:02", type: "text" }],
+  "dev-help": [{ id: 1, author: "Света", text: "Не собирается билд, ругается на импорт", time: "09:40", type: "text" }],
+  "dev-showcase": [{ id: 1, author: "Максим", text: "Запустил свой первый бот, зацените", time: "18:02", type: "text" }],
   "games-general": [
-    { id: 1, author: "РРіРѕСЂСЊ", text: "Р“Рѕ СЃРµРіРѕРґРЅСЏ РІРµС‡РµСЂРѕРј?", time: "20:05", type: "text" },
-    { id: 2, author: "РќР°СЃС‚СЏ", text: "РЇ Р·Р°", time: "20:06", type: "text" },
+    { id: 1, author: "Игорь", text: "Го сегодня вечером?", time: "20:05", type: "text" },
+    { id: 2, author: "Настя", text: "Я за", time: "20:06", type: "text" },
   ],
-  "games-lfg": [{ id: 1, author: "РџС‘С‚СЂ", text: "РќСѓР¶РµРЅ РµС‰С‘ РѕРґРёРЅ РІ РєРѕРјР°РЅРґСѓ, СЂР°РЅРі РЅРµРІР°Р¶РµРЅ", time: "19:30", type: "text" }],
-  "games-memes": [{ id: 1, author: "Р›РµРЅР°", text: "РќР°С€Р»Р° РєР°СЂС‚РёРЅРєСѓ РїСЂСЏРјРѕ РїСЂРѕ РЅР°СЃ", time: "12:00", type: "text" }],
+  "games-lfg": [{ id: 1, author: "Пётр", text: "Нужен ещё один в команду, ранг неважен", time: "19:30", type: "text" }],
+  "games-memes": [{ id: 1, author: "Лена", text: "Нашла картинку прямо про нас", time: "12:00", type: "text" }],
 };
 
 async function hashPassword(password) {
@@ -344,7 +344,7 @@ async function loadVoiceParticipants(channelId) {
 // --- Real voice (WebRTC) ---
 // Two public STUN servers, no TURN. This lets browsers discover their public
 // address so two peers can connect directly. On strict/symmetric NATs (common
-// on some mobile/corporate networks) a direct connection can still fail вЂ”
+// on some mobile/corporate networks) a direct connection can still fail —
 // that needs a paid TURN relay, which isn't included here.
 const ICE_SERVERS = [
   { urls: "stun:stun.l.google.com:19302" },
@@ -371,7 +371,7 @@ async function writeSignal(channelId, pairKey, updater) {
     const next = updater(current);
     await storage.set(voiceSignalKey(channelId, pairKey), JSON.stringify(next), true);
   } catch (err) {
-    // best-effort вЂ” the next poll tick will retry
+    // best-effort — the next poll tick will retry
   }
 }
 async function clearSignal(channelId, pairKey) {
@@ -425,10 +425,10 @@ function LanguageScreen({ onSelect }) {
     <div style={styles.loginWrap}>
       <div style={styles.loginCard}>
         <div style={styles.loginDot} />
-        <h1 style={styles.loginTitle}>Р’РѕР»РЅР° / Wave</h1>
-        <p style={styles.loginSubtitle}>Р’С‹Р±РµСЂРё СЏР·С‹Рє / Choose a language</p>
+        <h1 style={styles.loginTitle}>Волна / Wave</h1>
+        <p style={styles.loginSubtitle}>Выбери язык / Choose a language</p>
         <button onClick={() => onSelect("ru")} style={styles.loginButton} className="wave-btn">
-          Р СѓСЃСЃРєРёР№
+          Русский
         </button>
         <button
           onClick={() => onSelect("en")}
@@ -437,7 +437,7 @@ function LanguageScreen({ onSelect }) {
         >
           English
         </button>
-        <p style={styles.loginHint}>Р­С‚Рѕ РјРѕР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ РїРѕР·Р¶Рµ РІ РїСЂРёР»РѕР¶РµРЅРёРё / You can change this later in the app</p>
+        <p style={styles.loginHint}>Это можно изменить позже в приложении / You can change this later in the app</p>
       </div>
     </div>
   );
@@ -735,7 +735,7 @@ function VoiceChannelView({ channelId, channelName, participants, username, join
           }
           appliedCandidatesRef.current[other] = remoteList.length;
         } catch (err) {
-          // transient signaling hiccup вЂ” retried on the next tick
+          // transient signaling hiccup — retried on the next tick
         }
       }
       Object.keys(peersRef.current).forEach((other) => {
@@ -795,7 +795,7 @@ function VoiceChannelView({ channelId, channelName, participants, username, join
                 {isMe && muted ? " (mute)" : ""}
               </span>
               {status === "connecting" && (
-                <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--muted)" }}>вЂ¦</span>
+                <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--muted)" }}>…</span>
               )}
               <Mic
                 size={14}
@@ -1054,7 +1054,7 @@ export default function App() {
   if (!sessionChecked) {
     return (
       <div style={styles.loginWrap}>
-        <p style={{ color: "var(--muted)", fontSize: 14 }}>Р—Р°РіСЂСѓР·РєР°вЂ¦ / LoadingвЂ¦</p>
+        <p style={{ color: "var(--muted)", fontSize: 14 }}>Загрузка… / Loading…</p>
       </div>
     );
   }
@@ -1566,7 +1566,7 @@ export default function App() {
 
             {typingUser && (
               <p style={styles.typingIndicator}>
-                <span className="wave-typing-dots">в—Џв—Џв—Џ</span> {t.typingOne(typingUser)}
+                <span className="wave-typing-dots">●●●</span> {t.typingOne(typingUser)}
               </p>
             )}
 
@@ -1661,7 +1661,7 @@ export default function App() {
           <div style={styles.memberDrawer}>
             <div style={styles.memberDrawerHeader}>
               <span style={{ fontWeight: 800 }}>
-                {t.members} вЂ” {onlineMembers.length}
+                {t.members} — {onlineMembers.length}
               </span>
               <button onClick={() => setShowMembers(false)} style={styles.logoutButton} className="wave-btn" aria-label={t.close}>
                 <X size={18} />
@@ -1708,7 +1708,7 @@ export default function App() {
               />
             </div>
             <div style={{ overflowY: "auto", flex: 1 }}>
-              {globalLoading && <p style={{ color: "var(--muted)", fontSize: 13, padding: "10px 2px" }}>вЂ¦</p>}
+              {globalLoading && <p style={{ color: "var(--muted)", fontSize: 13, padding: "10px 2px" }}>…</p>}
               {!globalLoading && globalQuery.trim() && globalResults.length === 0 && (
                 <p style={{ color: "var(--muted)", fontSize: 13, padding: "10px 2px" }}>{t.nothingFound}</p>
               )}
@@ -1738,38 +1738,38 @@ export default function App() {
 // --- Telegram-style full-screen settings panel -----------------------------
 const SETTINGS_STRINGS = {
   ru: {
-    settings: "РќР°СЃС‚СЂРѕР№РєРё",
-    editProfile: "Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РїСЂРѕС„РёР»СЊ",
-    editProfileSub: "РРјСЏ, С„РѕС‚Рѕ, СЃС‚Р°С‚СѓСЃ",
-    account: "РђРєРєР°СѓРЅС‚ Рё РїСЂРёРІСЏР·РєР°",
-    accountSub: "РџРѕС‡С‚Р°, С‚РµР»РµС„РѕРЅ, РїР°СЂРѕР»СЊ",
-    notifications: "РЈРІРµРґРѕРјР»РµРЅРёСЏ",
-    notificationsSub: "Р—РІСѓРєРё Рё РїСЂРµРІСЊСЋ СЃРѕРѕР±С‰РµРЅРёР№",
-    appearance: "РћС„РѕСЂРјР»РµРЅРёРµ",
-    appearanceSub: "Р¦РІРµС‚ С‚РµРјС‹ РїСЂРёР»РѕР¶РµРЅРёСЏ",
-    language: "РЇР·С‹Рє",
-    privacy: "РџСЂРёРІР°С‚РЅРѕСЃС‚СЊ",
-    privacySub: "РљС‚Рѕ РІРёРґРёС‚ С‚РІРѕР№ РїСЂРѕС„РёР»СЊ",
-    logout: "Р’С‹Р№С‚Рё РёР· Р°РєРєР°СѓРЅС‚Р°",
-    logoutConfirm: "РўРѕС‡РЅРѕ РІС‹Р№С‚Рё РёР· Р°РєРєР°СѓРЅС‚Р° РЅР° СЌС‚РѕРј СѓСЃС‚СЂРѕР№СЃС‚РІРµ?",
-    logoutConfirmYes: "Р”Р°, РІС‹Р№С‚Рё",
-    logoutConfirmNo: "РћС‚РјРµРЅР°",
-    bio: "Рћ СЃРµР±Рµ",
-    bioPlaceholder: "Р Р°СЃСЃРєР°Р¶Рё Рѕ СЃРµР±Рµ РїР°СЂСѓ СЃР»РѕРІвЂ¦",
-    name: "РРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ",
-    save: "РЎРѕС…СЂР°РЅРёС‚СЊ",
-    saved: "РЎРѕС…СЂР°РЅРµРЅРѕ",
-    bindEmail: "РџСЂРёРІСЏР·Р°С‚СЊ РїРѕС‡С‚Сѓ",
-    bindPhone: "РџСЂРёРІСЏР·Р°С‚СЊ С‚РµР»РµС„РѕРЅ",
+    settings: "Настройки",
+    editProfile: "Редактировать профиль",
+    editProfileSub: "Имя, фото, статус",
+    account: "Аккаунт и привязка",
+    accountSub: "Почта, телефон, пароль",
+    notifications: "Уведомления",
+    notificationsSub: "Звуки и превью сообщений",
+    appearance: "Оформление",
+    appearanceSub: "Цвет темы приложения",
+    language: "Язык",
+    privacy: "Приватность",
+    privacySub: "Кто видит твой профиль",
+    logout: "Выйти из аккаунта",
+    logoutConfirm: "Точно выйти из аккаунта на этом устройстве?",
+    logoutConfirmYes: "Да, выйти",
+    logoutConfirmNo: "Отмена",
+    bio: "О себе",
+    bioPlaceholder: "Расскажи о себе пару слов…",
+    name: "Имя пользователя",
+    save: "Сохранить",
+    saved: "Сохранено",
+    bindEmail: "Привязать почту",
+    bindPhone: "Привязать телефон",
     emailPlaceholder: "you@example.com",
     phonePlaceholder: "+7 900 000-00-00",
-    notBound: "РЅРµ РїСЂРёРІСЏР·Р°РЅРѕ",
-    sound: "Р—РІСѓРє СѓРІРµРґРѕРјР»РµРЅРёР№",
-    preview: "РџРѕРєР°Р·С‹РІР°С‚СЊ С‚РµРєСЃС‚ СЃРѕРѕР±С‰РµРЅРёСЏ",
-    theme: "Р¦РІРµС‚ Р°РєС†РµРЅС‚Р°",
-    online: "РІ СЃРµС‚Рё",
-    version: "Р’РѕР»РЅР° В· РґРµРјРѕ-РІРµСЂСЃРёСЏ 1.0",
-    changePhoto: "РЎРјРµРЅРёС‚СЊ С†РІРµС‚ С„РѕС‚Рѕ",
+    notBound: "не привязано",
+    sound: "Звук уведомлений",
+    preview: "Показывать текст сообщения",
+    theme: "Цвет акцента",
+    online: "в сети",
+    version: "Волна · демо-версия 1.0",
+    changePhoto: "Сменить цвет фото",
   },
   en: {
     settings: "Settings",
@@ -1789,7 +1789,7 @@ const SETTINGS_STRINGS = {
     logoutConfirmYes: "Yes, log out",
     logoutConfirmNo: "Cancel",
     bio: "Bio",
-    bioPlaceholder: "Tell people a bit about yourselfвЂ¦",
+    bioPlaceholder: "Tell people a bit about yourself…",
     name: "Username",
     save: "Save",
     saved: "Saved",
@@ -1802,7 +1802,7 @@ const SETTINGS_STRINGS = {
     preview: "Show message text",
     theme: "Accent color",
     online: "online",
-    version: "Wave В· demo build 1.0",
+    version: "Wave · demo build 1.0",
     changePhoto: "Change photo color",
   },
 };
@@ -1953,7 +1953,7 @@ function SettingsPanel({ username, lang, t, storage, onToggleLang, onClose, onLo
                   icon={<Globe size={16} />}
                   iconBg="#8B94A3"
                   title={s.language}
-                  subtitle={lang === "ru" ? "Р СѓСЃСЃРєРёР№" : "English"}
+                  subtitle={lang === "ru" ? "Русский" : "English"}
                   onClick={onToggleLang}
                 />
               </div>
@@ -2017,7 +2017,7 @@ function SettingsPanel({ username, lang, t, storage, onToggleLang, onClose, onLo
                 style={settingsStyles.saveBtn}
                 onClick={() => persistAccount({ bio, email, phone, accent })}
               >
-                {saving ? "вЂ¦" : justSaved ? <Check size={16} /> : s.save}
+                {saving ? "…" : justSaved ? <Check size={16} /> : s.save}
               </button>
             </div>
           </>
@@ -2056,7 +2056,7 @@ function SettingsPanel({ username, lang, t, storage, onToggleLang, onClose, onLo
                 style={settingsStyles.saveBtn}
                 onClick={() => persistAccount({ bio, email, phone, accent })}
               >
-                {saving ? "вЂ¦" : justSaved ? <Check size={16} /> : s.save}
+                {saving ? "…" : justSaved ? <Check size={16} /> : s.save}
               </button>
             </div>
           </>
